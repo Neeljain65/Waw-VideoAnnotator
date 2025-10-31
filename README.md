@@ -7,7 +7,7 @@ Annotates laptop-camera videos frame-by-frame for eye state (Open/Closed) and po
 - `POST /annotate` endpoint that accepts `.mp4` or `.avi` files.
 - MediaPipe Face Mesh + Pose models for lightweight on-device inference.
 - Eye Aspect Ratio (EAR) heuristic for eye openness.
-- Spine inclination analysis for posture classification.
+- analysis for posture classification.
 - Deterministic JSON schema with per-frame labels.
 
 ## Prerequisites
@@ -62,11 +62,10 @@ The response bundles the standard annotation plus macro-averaged F1 scores for e
 ```
 
 - **Eye state**: EAR threshold defaults to `0.23`; adjust inside `VideoAnnotator` if you find too many false positives/negatives.
-- **Posture**: Uses the angle between the hip-to-shoulder vector and the vertical axis (threshold `15°`).
+- **Posture**: Uses the angle between the Ears and Shoulder  vector and the vertical axis .
 - Frames missing detections reuse the previous label (otherwise fall back to `Closed`/`Hunched`) to maintain consistent output length.
-- Override thresholds or plug alternate models by subclassing `VideoAnnotator` or overriding the FastAPI dependency.
 
 # F1 Score
 
--Eye_state_F1 score = 93.03%
--Posture_State_F1_score = 84.31% 
+- Eye_state_F1 score = 93.03%
+- Posture_State_F1_score = 84.31% 
