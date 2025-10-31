@@ -63,7 +63,7 @@ The response bundles the standard annotation plus macro-averaged F1 scores for e
 
 - **Eye state**: EAR threshold defaults to `0.23`; adjust inside `VideoAnnotator` if you find too many false positives/negatives.
 - **Posture**: Uses the angle between the Ears and Shoulder  vector and the vertical axis .
-- Frames missing detections reuse the previous label (otherwise fall back to `Closed`/`Hunched`) to maintain consistent output length.
+
 
 # F1 Score
 
